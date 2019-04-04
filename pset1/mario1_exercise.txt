@@ -1,0 +1,2 @@
+Recreate half pyramid.
+Usage: gcc mario1.c and run ./a.out. Then, input height of pyramid.

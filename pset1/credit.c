@@ -1,7 +1,30 @@
-/* This program validates American Express, VISA and Master Card cards
-enter your card number to check if it is valid */
 #include <stdlib.h>
 #include <stdio.h>
+
+int   strlength(char *str) //returns length. if string contains any other
+{ // character than a number, then it returns 0.
+  int i;
+  int restricted;
+
+  i = 0;
+  restricted = 0;
+  while (str[i] != '\n')
+  {
+    if (!(str[i] - 48 >= 0 && str[i] - 48 <= 9))
+    {
+      restricted++;
+    }
+    i++;
+  }
+  if (restricted == 0)
+  {
+    return (i);
+  }
+  else
+  {
+    return (0);
+  }
+}
 
 void  card_name(char *str)
 {
@@ -28,7 +51,7 @@ int   checksum(char *str) // every second digit from end of the number is
   int temp;
 
   counter = 1;
-  len = str_length(str) - 1;
+  len = strlength(str) - 1;
   sum = 0;
   while (len >= 0)
   {
@@ -65,31 +88,6 @@ int   checksum(char *str) // every second digit from end of the number is
   }
 }
 
-int   str_length(char *str) //returns length. if string contains any other
-{ // character than a number, then it returns 0.
-  int i;
-  int restricted;
-
-  i = 0;
-  restricted = 0;
-  while (str[i] != '\n')
-  {
-    if (!(str[i] - 48 >= 0 && str[i] - 48 <= 9))
-    {
-      restricted++;
-    }
-    i++;
-  }
-  if (restricted == 0)
-  {
-    return (i);
-  }
-  else
-  {
-    return (0);
-  }
-}
-
 int   main(void)
 {
   char *array; // store user's card number
@@ -99,7 +97,7 @@ int   main(void)
   {
     printf("Number: ");
     fgets(array, 20, stdin); // read user's input
-  }while(str_length(array) != 13 && str_length(array) != 15 && str_length(array) != 16);
+  }while(strlength(array) != 13 && strlength(array) != 15 && strlength(array) != 16);
   // while length of number is not equal to length of American Express, VISA
   // or Master Card, keep asking user for number that is of correct length.
   if (checksum(array) == 1) // check card number using Luhn's Alghoritm
@@ -113,4 +111,3 @@ int   main(void)
   free(array);
   return (0);
 }
-
