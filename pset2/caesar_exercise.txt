@@ -1,0 +1,6 @@
+Reproduce caesar cipher.
+Usage: gcc caesar.c, then in the excutable pass a number to shift
+all characters by.
+For example, ./a.out 2
+plaintext: asd
+ciphertext: cuf

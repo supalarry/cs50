@@ -1,0 +1,6 @@
+Reproduce vigenere cipher.
+Usage: gcc vigenere.c, then pass key for cipher as parameter
+to executable.
+For example, ./a.out bacon
+plaintext: Meet me at the park at eleven am
+ciphertext: Negh zf av huf pcfx bt gzrwep oz
