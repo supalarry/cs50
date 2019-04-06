@@ -14,7 +14,6 @@ int   main(int argc, char **argv)
   float  multiple = atoll(argv[1]);
 
   printf("%s\n", multiple);
-  printf("xddd\n");
   FILE *inptr = fopen(infile, "r");
   if (inptr == NULL)
   {
